@@ -25,42 +25,9 @@
 
         header {
             text-align: center;
-            padding: 30px 20px 20px 20px;
+            padding: 25px 20px;
             border-bottom: 1px solid var(--border-color);
             background: linear-gradient(to bottom, #1a1a1a, #0b0b0b);
-        }
-
-        .founders-badge {
-            display: inline-flex;
-            align-items: center;
-            background: #221c10;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-container {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-            background: #000;
-        }
-
-        .logo-inner {
-            width: 25px;
-            height: 25px;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
         }
 
         h1 {
@@ -72,7 +39,7 @@
         .tagline {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .phone-link {
@@ -198,6 +165,22 @@
             text-align: center;
         }
 
+        .map-section {
+            margin: 30px 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border: 0;
+        }
+
         .cart-bar {
             position: fixed;
             bottom: 0;
@@ -211,6 +194,7 @@
             align-items: center;
             box-sizing: border-box;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
         }
 
         .cart-total {
@@ -240,10 +224,6 @@
 <body>
 
     <header>
-        <div class="founders-badge">👑 FOUNDERS EDITION</div>
-        <div class="logo-container">
-            <div class="logo-inner"></div>
-        </div>
         <h1>Pyramids Cuisine</h1>
         <div class="tagline">STONE BBQ & CAFE • Heritage in every bite</div>
         <div class="tagline" style="font-size: 0.85rem; color: #888;">Off Links Rd Next to Bustani Close, Nyali</div>
@@ -256,42 +236,16 @@
         <button class="tab-btn active" onclick="filterMenu('all')">All Items</button>
         <button class="tab-btn" onclick="filterMenu('breakfast')">Breakfast Plates</button>
         <button class="tab-btn" onclick="filterMenu('sandwiches')">Breakfast Sandwiches</button>
-        <button class="tab-btn" onclick="filterMenu('grills')">Stone BBQ & Grills</button>
+        <button class="tab-btn" onclick="filterMenu('combos')">Breakfast Combos</button>
+        <button class="tab-btn" onclick="filterMenu('lunch')">Lunch Plates</button>
+        <button class="tab-btn" onclick="filterMenu('lunch-sandwiches')">Lunch Sandwiches</button>
+        <button class="tab-btn" onclick="filterMenu('sides')">Sides</button>
+        <button class="tab-btn" onclick="filterMenu('juices')">Juices & Smoothies</button>
+        <button class="tab-btn" onclick="filterMenu('desserts')">Desserts</button>
     </div>
 
     <div class="menu-container">
         
-        <!-- STONE BBQ & GRILLS -->
-        <div class="section-category" data-category="grills">
-            <div class="section-title">Stone BBQ & Grills</div>
-            
-            <div class="menu-item">
-                <div class="item-info">
-                    <div class="item-name">Signature Stone BBQ Platter</div>
-                    <div class="item-desc">Assorted grilled meats served sizzling on a hot stone with special sauce.</div>
-                    <div class="item-price">KSh 2,500</div>
-                </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Signature Stone BBQ Platter', 2500, -1)">-</button>
-                    <span class="qty-display" id="qty-Signature Stone BBQ Platter">0</span>
-                    <button class="qty-btn" onclick="updateQty('Signature Stone BBQ Platter', 2500, 1)">+</button>
-                </div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-info">
-                    <div class="item-name">Jumbo Nyama Choma Platter</div>
-                    <div class="item-desc">Juicy, flame-grilled ribs and steak cuts served with kachumbari and ugali.</div>
-                    <div class="item-price">KSh 1,800</div>
-                </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Jumbo Nyama Choma Platter', 1800, -1)">-</button>
-                    <span class="qty-display" id="qty-Jumbo Nyama Choma Platter">0</span>
-                    <button class="qty-btn" onclick="updateQty('Jumbo Nyama Choma Platter', 1800, 1)">+</button>
-                </div>
-            </div>
-        </div>
-
         <!-- BREAKFAST PLATES -->
         <div class="section-category" data-category="breakfast">
             <div class="section-title">Breakfast Plates</div>
@@ -321,6 +275,97 @@
                     <button class="qty-btn" onclick="updateQty('Turkish Egg', 400, 1)">+</button>
                 </div>
             </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Sunny-side up eggs</div>
+                    <div class="item-desc">Fresh eggs topped with authentic Sudanese cheese and mozzarella.</div>
+                    <div class="item-price">KSh 300</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Sunny-side up eggs', 300, -1)">-</button>
+                    <span class="qty-display" id="qty-Sunny-side up eggs">0</span>
+                    <button class="qty-btn" onclick="updateQty('Sunny-side up eggs', 300, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Scrambled Eggs</div>
+                    <div class="item-desc">Creamy scrambled eggs with 2 slices of Sudanese cheese.</div>
+                    <div class="item-price">KSh 300</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Scrambled Eggs', 300, -1)">-</button>
+                    <span class="qty-display" id="qty-Scrambled Eggs">0</span>
+                    <button class="qty-btn" onclick="updateQty('Scrambled Eggs', 300, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Boiled Eggs with sauteed Vegetables</div>
+                    <div class="item-desc">Boiled eggs sauteed in butter with vegetables, aromatic spices, green chili, and 2 slices of Sudanese cheese.</div>
+                    <div class="item-price">KSh 250</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Boiled Eggs with sauteed Vegetables', 2500, -1)">-</button>
+                    <span class="qty-display" id="qty-Boiled Eggs with sauteed Vegetables">0</span>
+                    <button class="qty-btn" onclick="updateQty('Boiled Eggs with sauteed Vegetables', 250, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Spinach Omelete</div>
+                    <div class="item-desc">Soft omelete folded with fresh spinach, served with 2 slices of Sudanese cheese.</div>
+                    <div class="item-price">KSh 250</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Spinach Omelete', 250, -1)">-</button>
+                    <span class="qty-display" id="qty-Spinach Omelete">0</span>
+                    <button class="qty-btn" onclick="updateQty('Spinach Omelete', 250, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Plain Omelete</div>
+                    <div class="item-desc">Fluffy classic omelete served with 2 slices of Sudanese cheese.</div>
+                    <div class="item-price">KSh 200</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Plain Omelete', 200, -1)">-</button>
+                    <span class="qty-display" id="qty-Plain Omelete">0</span>
+                    <button class="qty-btn" onclick="updateQty('Plain Omelete', 200, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Sausage & Fries</div>
+                    <div class="item-desc">Pan-seared sausage paired with golden, crispy fries.</div>
+                    <div class="item-price">KSh 350</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Sausage & Fries', 350, -1)">-</button>
+                    <span class="qty-display" id="qty-Sausage & Fries">0</span>
+                    <button class="qty-btn" onclick="updateQty('Sausage & Fries', 350, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Avocado Toast</div>
+                    <div class="item-desc">Fresh sliced avocado layered on toasted bread with sesame, black seeds, and olive oil drizzle.</div>
+                    <div class="item-price">KSh 350</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Avocado Toast', 350, -1)">-</button>
+                    <span class="qty-display" id="qty-Avocado Toast">0</span>
+                    <button class="qty-btn" onclick="updateQty('Avocado Toast', 350, 1)">+</button>
+                </div>
+            </div>
         </div>
 
         <!-- BREAKFAST SANDWICHES -->
@@ -339,8 +384,150 @@
                     <button class="qty-btn" onclick="updateQty('Falafel (Tamia) Sandwich', 300, 1)">+</button>
                 </div>
             </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Falafel with cheese</div>
+                    <div class="item-desc">Classic falafel sandwich loaded with melting cheese.</div>
+                    <div class="item-price">KSh 250</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Falafel with cheese', 250, -1)">-</button>
+                    <span class="qty-display" id="qty-Falafel with cheese">0</span>
+                    <button class="qty-btn" onclick="updateQty('Falafel with cheese', 250, 1)">+</button>
+                </div>
+            </div>
         </div>
 
+        <!-- BREAKFAST COMBOS -->
+        <div class="section-category" data-category="combos">
+            <div class="section-title">Breakfast Combos</div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">English Breakfast</div>
+                    <div class="item-desc">Choice of eggs, bacon, sausage, and toast.</div>
+                    <div class="item-price">KSh 900</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('English Breakfast', 900, -1)">-</button>
+                    <span class="qty-display" id="qty-English Breakfast">0</span>
+                    <button class="qty-btn" onclick="updateQty('English Breakfast', 900, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LUNCH PLATES -->
+        <div class="section-category" data-category="lunch">
+            <div class="section-title">Lunch Plates</div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Agashi</div>
+                    <div class="item-desc">Traditional Sudanese specialty dish.</div>
+                    <div class="item-price">KSh 600</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Agashi', 600, -1)">-</button>
+                    <span class="qty-display" id="qty-Agashi">0</span>
+                    <button class="qty-btn" onclick="updateQty('Agashi', 600, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Traditional Sudanese Chicken</div>
+                    <div class="item-desc">Tender chicken cooked with authentic spices and rich gravy.</div>
+                    <div class="item-price">KSh 750</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Traditional Sudanese Chicken', 750, -1)">-</button>
+                    <span class="qty-display" id="qty-Traditional Sudanese Chicken">0</span>
+                    <button class="qty-btn" onclick="updateQty('Traditional Sudanese Chicken', 750, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LUNCH SANDWICHES -->
+        <div class="section-category" data-category="lunch-sandwiches">
+            <div class="section-title">Lunch Sandwiches</div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Shish Tawook Sandwich</div>
+                    <div class="item-desc">Marinated grilled chicken skewers wrapped with garlic sauce and pickles.</div>
+                    <div class="item-price">KSh 450</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Shish Tawook Sandwich', 450, -1)">-</button>
+                    <span class="qty-display" id="qty-Shish Tawook Sandwich">0</span>
+                    <button class="qty-btn" onclick="updateQty('Shish Tawook Sandwich', 450, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDES -->
+        <div class="section-category" data-category="sides">
+            <div class="section-title">Sides</div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Crispy French Fries</div>
+                    <div class="item-desc">Golden potato fries served hot and salted.</div>
+                    <div class="item-price">KSh 250</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Crispy French Fries', 250, -1)">-</button>
+                    <span class="qty-display" id="qty-Crispy French Fries">0</span>
+                    <button class="qty-btn" onclick="updateQty('Crispy French Fries', 250, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JUICES & SMOOTHIES -->
+        <div class="section-category" data-category="juices">
+            <div class="section-title">Juices & Smoothies</div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Fresh Mango Juice</div>
+                    <div class="item-desc">100% pure blended fresh seasonal mangoes.</div>
+                    <div class="item-price">KSh 350</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Fresh Mango Juice', 350, -1)">-</button>
+                    <span class="qty-display" id="qty-Fresh Mango Juice">0</span>
+                    <button class="qty-btn" onclick="updateQty('Fresh Mango Juice', 350, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="section-category" data-category="desserts">
+            <div class="section-title">Desserts</div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Signature Baklava</div>
+                    <div class="item-desc">Sweet pastry layers filled with chopped nuts and honey syrup.</div>
+                    <div class="item-price">KSh 300</div>
+                </div>
+                <div class="item-actions">
+                    <button class="qty-btn" onclick="updateQty('Signature Baklava', 300, -1)">-</button>
+                    <span class="qty-display" id="qty-Signature Baklava">0</span>
+                    <button class="qty-btn" onclick="updateQty('Signature Baklava', 300, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GOOGLE MAP EMBED -->
+    <div class="map-section">
+        <div style="padding: 10px 15px; background: #141414; font-weight: bold; color: var(--accent-gold); border-bottom: 1px solid var(--border-color);">
+            📍 Find Us: Off Links Rd, next to Bustani Close, Nyali
+        </div>
+        <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.851978253689!2d39.7135!3d-4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMDInMzYuNiJTIDM5wrA0Mif2OC4zIkU!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="cart-bar">
