@@ -33,7 +33,7 @@
         h1 {
             margin: 0 0 5px 0;
             font-size: 1.8rem;
-            color: var(--text-main);
+            color: var(--accent-gold);
         }
 
         .tagline {
@@ -44,11 +44,15 @@
 
         .phone-link {
             display: inline-block;
-            color: var(--text-main);
+            color: var(--accent-gold);
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             margin-top: 5px;
+        }
+
+        .phone-link:hover {
+            text-decoration: underline;
         }
 
         .nav-tabs {
@@ -309,7 +313,7 @@
                     <div class="item-price">KSh 250</div>
                 </div>
                 <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Boiled Eggs with sauteed Vegetables', 2500, -1)">-</button>
+                    <button class="qty-btn" onclick="updateQty('Boiled Eggs with sauteed Vegetables', 250, -1)">-</button>
                     <span class="qty-display" id="qty-Boiled Eggs with sauteed Vegetables">0</span>
                     <button class="qty-btn" onclick="updateQty('Boiled Eggs with sauteed Vegetables', 250, 1)">+</button>
                 </div>
@@ -522,12 +526,12 @@
 
     </div>
 
-    <!-- GOOGLE MAP EMBED -->
+    <!-- GOOGLE MAP EMBED (Precise Nyali, Links Rd Coordinates) -->
     <div class="map-section">
         <div style="padding: 10px 15px; background: #141414; font-weight: bold; color: var(--accent-gold); border-bottom: 1px solid var(--border-color);">
             📍 Find Us: Off Links Rd, next to Bustani Close, Nyali
         </div>
-        <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.851978253689!2d39.7135!3d-4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMDInMzYuNiJTIDM5wrA0Mif2OC4zIkU!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+        <iframe class="map-container" src="https://maps.google.com/maps?q=Links+Road,+Nyali,+Mombasa&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="cart-bar">
