@@ -3,412 +3,826 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pyramids Cuisine - Stone BBQ & Cafe</title>
+    <title>Pyramids Cuisine | Stone BBQ & Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0b0b0b;
-            --card-bg: #141414;
-            --accent-gold: #f39c12;
-            --text-main: #ffffff;
-            --text-muted: #aaaaaa;
-            --border-color: #2a2a2a;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #d97706;
+            --border: #2d2d2d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            padding-bottom: 100px;
+            line-height: 1.5;
+            padding-bottom: 90px;
         }
 
         header {
+            background: linear-gradient(to bottom, #1a1a1a, var(--bg-color));
+            padding: 2rem 1.5rem 1.5rem;
             text-align: center;
-            padding: 30px 20px 20px 20px;
-            border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(to bottom, #1a1a1a, #0b0b0b);
+            border-bottom: 1px solid var(--border);
         }
 
         .founders-badge {
-            display: inline-flex;
-            align-items: center;
-            background: #221c10;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-container {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px auto;
+            gap: 8px;
+            background: #000000;
+            border: 1px solid var(--accent);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .founders-crown {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .founders-text {
+            color: var(--text-main);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .lion-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+            margin: 0 auto 0.75rem;
+            display: block;
             background: #000;
         }
 
-        .logo-inner {
-            width: 25px;
-            height: 25px;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
-        }
-
         h1 {
-            margin: 0 0 5px 0;
-            font-size: 1.8rem;
-            color: var(--text-main);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #ffffff;
         }
 
-        .tagline {
+        .tagline-main {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .tagline-sub {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .location-info {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
         }
 
         .phone-link {
             display: inline-block;
             color: var(--text-main);
+            font-size: 0.9rem;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 5px;
+            font-weight: 600;
+            background: var(--card-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-top: 0.5rem;
         }
 
-        .nav-tabs {
+        .category-nav {
             display: flex;
+            gap: 0.5rem;
             overflow-x: auto;
-            gap: 10px;
-            padding: 15px 20px;
-            background: #0f0f0f;
-            border-bottom: 1px solid var(--border-color);
-            white-space: nowrap;
+            padding: 1rem;
+            background: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
             scrollbar-width: none;
         }
 
-        .nav-tabs::-webkit-scrollbar {
+        .category-nav::-webkit-scrollbar {
             display: none;
         }
 
-        .tab-btn {
-            background: #1e1e1e;
-            color: var(--text-main);
-            border: none;
-            padding: 8px 16px;
+        .cat-btn {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--accent-gold);
-            color: #000;
-            font-weight: bold;
+        .cat-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
         }
 
-        .menu-container {
-            max-width: 800px;
+        .container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1rem;
         }
 
         .section-title {
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 10px;
-            margin: 30px 0 15px 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            color: var(--accent);
+            border-left: 3px solid var(--accent);
+            padding-left: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .menu-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
+        .menu-grid {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .item-info {
-            flex-grow: 1;
-            padding-right: 15px;
+        .menu-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .item-details {
+            flex: 1;
         }
 
         .item-name {
-            font-size: 1.05rem;
-            font-weight: bold;
-            margin: 0 0 5px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
         }
 
         .item-desc {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin: 0 0 8px 0;
             line-height: 1.4;
         }
 
-        .item-price {
-            color: var(--accent-gold);
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .item-actions {
+        .item-right {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
         }
 
-        .qty-btn {
-            background: #2a2a2a;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
+        .item-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .add-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            font-weight: bold;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .qty-btn:hover {
-            background: var(--accent-gold);
-            color: black;
-        }
-
-        .qty-display {
             font-weight: bold;
-            min-width: 15px;
-            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-btn:active {
+            background: var(--accent);
+            color: #fff;
         }
 
         .cart-bar {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
-            background: #141414;
-            border-top: 1px solid var(--border-color);
-            padding: 15px 25px;
+            right: 0;
+            background: #181818;
+            border-top: 1px solid var(--border);
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .cart-info {
+            font-size: 0.9rem;
         }
 
         .cart-total {
+            font-weight: 700;
+            color: var(--accent);
             font-size: 1.1rem;
-            font-weight: bold;
         }
 
-        .whatsapp-btn {
-            background: #25d366;
-            color: white;
+        .checkout-btn {
+            background: var(--accent);
+            color: #fff;
             border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1rem;
         }
 
-        .whatsapp-btn:hover {
-            background: #22bf5b;
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 600px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 1.5rem;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-order-btn {
+            display: block;
+            width: 100%;
+            background: #25D366;
+            color: #fff;
+            text-align: center;
+            padding: 0.9rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="founders-badge">👑 FOUNDERS EDITION</div>
-        <div class="logo-container">
-            <div class="logo-inner"></div>
+        <div class="founders-badge">
+            <span class="founders-crown">👑</span>
+            <span class="founders-text">Founders Edition</span>
         </div>
+        <svg class="lion-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#1e1e1e" stroke="#d97706" stroke-width="4"/>
+            <path d="M50 25 C65 25 75 35 75 50 C75 65 65 75 50 75 C35 75 25 65 25 50 C25 35 35 25 50 25 Z" fill="#d97706" opacity="0.2"/>
+            <text x="50" y="58" font-size="32" text-anchor="middle" fill="#d97706" font-weight="bold">🦁</text>
+        </svg>
         <h1>Pyramids Cuisine</h1>
-        <div class="tagline">STONE BBQ & CAFE • Heritage in every bite</div>
-        <div class="tagline" style="font-size: 0.85rem; color: #888;">Off Links Rd Next to Bustani Close, Nyali</div>
-        <div>
-            <a href="tel:0729649904" class="phone-link">📞 0729649904</a>
-        </div>
+        <div class="tagline-main">Stone BBQ & Cafe</div>
+        <div class="tagline-sub">Heritage in every bite</div>
+        <div class="location-info">Off Links Rd Next To Bustani Close, Nyali</div>
+        <a href="tel:0729649904" class="phone-link">📞 0729649904</a>
     </header>
 
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="filterMenu('all')">All Items</button>
-        <button class="tab-btn" onclick="filterMenu('breakfast')">Breakfast Plates</button>
-        <button class="tab-btn" onclick="filterMenu('sandwiches')">Breakfast Sandwiches</button>
-        <button class="tab-btn" onclick="filterMenu('grills')">Stone BBQ & Grills</button>
+    <div class="category-nav">
+        <button class="cat-btn active" onclick="filterMenu('all', this)">All Items</button>
+        <button class="cat-btn" onclick="filterMenu('bf-plates', this)">Breakfast Plates</button>
+        <button class="cat-btn" onclick="filterMenu('bf-sandwiches', this)">Breakfast Sandwiches</button>
+        <button class="cat-btn" onclick="filterMenu('bf-combos', this)">Breakfast Combos</button>
+        <button class="cat-btn" onclick="filterMenu('lunch-plates', this)">Lunch Plates</button>
+        <button class="cat-btn" onclick="filterMenu('lunch-sandwiches', this)">Lunch Sandwiches</button>
+        <button class="cat-btn" onclick="filterMenu('sides', this)">Sides</button>
+        <button class="cat-btn" onclick="filterMenu('drinks', this)">Juices & Smoothies</button>
+        <button class="cat-btn" onclick="filterMenu('desserts', this)">Desserts</button>
     </div>
 
-    <div class="menu-container">
+    <div class="container" id="menu-container">
         
-        <!-- STONE BBQ & GRILLS -->
-        <div class="section-category" data-category="grills">
-            <div class="section-title">Stone BBQ & Grills</div>
-            
-            <div class="menu-item">
-                <div class="item-info">
-                    <div class="item-name">Signature Stone BBQ Platter</div>
-                    <div class="item-desc">Assorted grilled meats served sizzling on a hot stone with special sauce.</div>
-                    <div class="item-price">KSh 2,500</div>
-                </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Signature Stone BBQ Platter', 2500, -1)">-</button>
-                    <span class="qty-display" id="qty-Signature Stone BBQ Platter">0</span>
-                    <button class="qty-btn" onclick="updateQty('Signature Stone BBQ Platter', 2500, 1)">+</button>
-                </div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-info">
-                    <div class="item-name">Jumbo Nyama Choma Platter</div>
-                    <div class="item-desc">Juicy, flame-grilled ribs and steak cuts served with kachumbari and ugali.</div>
-                    <div class="item-price">KSh 1,800</div>
-                </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Jumbo Nyama Choma Platter', 1800, -1)">-</button>
-                    <span class="qty-display" id="qty-Jumbo Nyama Choma Platter">0</span>
-                    <button class="qty-btn" onclick="updateQty('Jumbo Nyama Choma Platter', 1800, 1)">+</button>
-                </div>
-            </div>
-        </div>
-
         <!-- BREAKFAST PLATES -->
-        <div class="section-category" data-category="breakfast">
-            <div class="section-title">Breakfast Plates</div>
-            
-            <div class="menu-item">
-                <div class="item-info">
+        <div class="section-title" data-cat="bf-plates">Breakfast Plates</div>
+        <div class="menu-grid" data-cat="bf-plates">
+            <div class="menu-item" data-name="Falafel (Tamia)" data-price="400">
+                <div class="item-details">
                     <div class="item-name">Falafel (Tamia)</div>
                     <div class="item-desc">Crispy golden chickpea patties, served with creamy tahini sauce.</div>
-                    <div class="item-price">KSh 400</div>
                 </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Falafel (Tamia)', 400, -1)">-</button>
-                    <span class="qty-display" id="qty-Falafel (Tamia)">0</span>
-                    <button class="qty-btn" onclick="updateQty('Falafel (Tamia)', 400, 1)">+</button>
+                <div class="item-right">
+                    <span class="item-price">KSh 400</span>
+                    <button class="add-btn" onclick="addToCart('Falafel (Tamia)', 400)">+</button>
                 </div>
             </div>
-
-            <div class="menu-item">
-                <div class="item-info">
+            <div class="menu-item" data-name="Turkish Egg" data-price="400">
+                <div class="item-details">
                     <div class="item-name">Turkish Egg</div>
                     <div class="item-desc">Soft eggs simmered in flavorful tomato and onion sauce, topped with melted mozzarella.</div>
-                    <div class="item-price">KSh 400</div>
                 </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Turkish Egg', 400, -1)">-</button>
-                    <span class="qty-display" id="qty-Turkish Egg">0</span>
-                    <button class="qty-btn" onclick="updateQty('Turkish Egg', 400, 1)">+</button>
+                <div class="item-right">
+                    <span class="item-price">KSh 400</span>
+                    <button class="add-btn" onclick="addToCart('Turkish Egg', 400)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Sunny-side up Eggs" data-price="300">
+                <div class="item-details">
+                    <div class="item-name">Sunny-side up Eggs</div>
+                    <div class="item-desc">Fresh eggs topped with authentic Sudanese cheese and mozzarella.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 300</span>
+                    <button class="add-btn" onclick="addToCart('Sunny-side up Eggs', 300)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Scrambled Eggs" data-price="300">
+                <div class="item-details">
+                    <div class="item-name">Scrambled Eggs</div>
+                    <div class="item-desc">Creamy scrambled eggs with 2 slices of Sudanese cheese.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 300</span>
+                    <button class="add-btn" onclick="addToCart('Scrambled Eggs', 300)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Boiled Eggs with sauteed Vegetables" data-price="250">
+                <div class="item-details">
+                    <div class="item-name">Boiled Eggs with sauteed Vegetables</div>
+                    <div class="item-desc">Boiled eggs sauteed in butter with vegetables, aromatic spices, green chili, and 2 slices of Sudanese cheese.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 250</span>
+                    <button class="add-btn" onclick="addToCart('Boiled Eggs with sauteed Vegetables', 250)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Spinach Omelete" data-price="250">
+                <div class="item-details">
+                    <div class="item-name">Spinach Omelete</div>
+                    <div class="item-desc">Soft omelete folded with fresh spinach, served with 2 slices of Sudanese cheese.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 250</span>
+                    <button class="add-btn" onclick="addToCart('Spinach Omelete', 250)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Plain Omelete" data-price="200">
+                <div class="item-details">
+                    <div class="item-name">Plain Omelete</div>
+                    <div class="item-desc">Fluffy classic omelete served with 2 slices of Sudanese cheese.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 200</span>
+                    <button class="add-btn" onclick="addToCart('Plain Omelete', 200)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Sausage & Fries" data-price="350">
+                <div class="item-details">
+                    <div class="item-name">Sausage & Fries</div>
+                    <div class="item-desc">Pan-seared sausage paired with golden, crispy fries.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 350</span>
+                    <button class="add-btn" onclick="addToCart('Sausage & Fries', 350)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Avocado Toast" data-price="350">
+                <div class="item-details">
+                    <div class="item-name">Avocado Toast</div>
+                    <div class="item-desc">Fresh sliced avocado layered on toasted bread with sesame, black seeds, and olive oil drizzle.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 350</span>
+                    <button class="add-btn" onclick="addToCart('Avocado Toast', 350)">+</button>
                 </div>
             </div>
         </div>
 
         <!-- BREAKFAST SANDWICHES -->
-        <div class="section-category" data-category="sandwiches">
-            <div class="section-title">Breakfast Sandwiches</div>
-            
-            <div class="menu-item">
-                <div class="item-info">
-                    <div class="item-name">Falafel (Tamia) Sandwich</div>
+        <div class="section-title" data-cat="bf-sandwiches">Breakfast Sandwiches</div>
+        <div class="menu-grid" data-cat="bf-sandwiches">
+            <div class="menu-item" data-name="Falafil (Tamia) Sandwich" data-price="300">
+                <div class="item-details">
+                    <div class="item-name">Falafil (Tamia) Sandwich</div>
                     <div class="item-desc">Crispy golden falafel in homemade lavash bread with tahini, pickles, tomato, and lettuce.</div>
-                    <div class="item-price">KSh 300</div>
                 </div>
-                <div class="item-actions">
-                    <button class="qty-btn" onclick="updateQty('Falafel (Tamia) Sandwich', 300, -1)">-</button>
-                    <span class="qty-display" id="qty-Falafel (Tamia) Sandwich">0</span>
-                    <button class="qty-btn" onclick="updateQty('Falafel (Tamia) Sandwich', 300, 1)">+</button>
+                <div class="item-right">
+                    <span class="item-price">KSh 300</span>
+                    <button class="add-btn" onclick="addToCart('Falafil (Tamia) Sandwich', 300)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Falafil with cheese" data-price="250">
+                <div class="item-details">
+                    <div class="item-name">Falafil with cheese</div>
+                    <div class="item-desc">Golden falafel topped with Sudanese cheese.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 250</span>
+                    <button class="add-btn" onclick="addToCart('Falafil with cheese', 250)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Toasted cheese" data-price="350">
+                <div class="item-details">
+                    <div class="item-name">Toasted cheese</div>
+                    <div class="item-desc">Sudanese cheese topped with melted mozzarella, toasted to golden perfection.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 350</span>
+                    <button class="add-btn" onclick="addToCart('Toasted cheese', 350)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Classic club Sandwich" data-price="750">
+                <div class="item-details">
+                    <div class="item-name">Classic club Sandwich</div>
+                    <div class="item-desc">Grilled chicken, crispy bacon, fried egg, lettuce, tomato, onion, and mayonnaise on toast.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 750</span>
+                    <button class="add-btn" onclick="addToCart('Classic club Sandwich', 750)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Pyramids Club Sandwich" data-price="700">
+                <div class="item-details">
+                    <div class="item-name">Pyramids Club Sandwich</div>
+                    <div class="item-desc">Tuna, creamy guacamole, lettuce, tomato, onion, and tangy mayonnaise on toast.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 700</span>
+                    <button class="add-btn" onclick="addToCart('Pyramids Club Sandwich', 700)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Sausage sandwich" data-price="350">
+                <div class="item-details">
+                    <div class="item-name">Sausage sandwich</div>
+                    <div class="item-desc">Juicy sausage with honey mustard, ketchup, and mayonnaise in bread.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 350</span>
+                    <button class="add-btn" onclick="addToCart('Sausage sandwich', 350)">+</button>
                 </div>
             </div>
         </div>
 
+        <!-- BREAKFAST COMBOS -->
+        <div class="section-title" data-cat="bf-combos">Breakfast Combos</div>
+        <div class="menu-grid" data-cat="bf-combos">
+            <div class="menu-item" data-name="Swahili Breakfast" data-price="600">
+                <div class="item-details">
+                    <div class="item-name">Swahili Breakfast</div>
+                    <div class="item-desc">Pan-seared sausage paired with our golden, crispy fries.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 600</span>
+                    <button class="add-btn" onclick="addToCart('Swahili Breakfast', 600)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="English Breakfast" data-price="900">
+                <div class="item-details">
+                    <div class="item-name">English Breakfast</div>
+                    <div class="item-desc">Choice of eggs, bacon, sausages, roasted potatoes, seasoned tomato, baked beans, toast, and tea.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 900</span>
+                    <button class="add-btn" onclick="addToCart('English Breakfast', 900)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LUNCH PLATES -->
+        <div class="section-title" data-cat="lunch-plates">Lunch Plates</div>
+        <div class="menu-grid" data-cat="lunch-plates">
+            <div class="menu-item" data-name="Agashi" data-price="600">
+                <div class="item-details">
+                    <div class="item-name">Agashi</div>
+                    <div class="item-desc">Traditional Sudanese chicken marinated in rich peanut butter & aromatic spices, flame grilled.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 600</span>
+                    <button class="add-btn" onclick="addToCart('Agashi', 600)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Kua" data-price="780">
+                <div class="item-details">
+                    <div class="item-name">Kua</div>
+                    <div class="item-desc">Grilled spiced minced meat, served with creamy garlic sauce and chips.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 780</span>
+                    <button class="add-btn" onclick="addToCart('Kua', 780)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Shish-tawook" data-price="800">
+                <div class="item-details">
+                    <div class="item-name">Shish-tawook</div>
+                    <div class="item-desc">Tender chicken skewers in a zesty spice mix, grilled with garlic sauce and chips.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 800</span>
+                    <button class="add-btn" onclick="addToCart('Shish-tawook', 800)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LUNCH SANDWICHES -->
+        <div class="section-title" data-cat="lunch-sandwiches">Lunch Sandwiches</div>
+        <div class="menu-grid" data-cat="lunch-sandwiches">
+            <div class="menu-item" data-name="Agashi Sandwich" data-price="300">
+                <div class="item-details">
+                    <div class="item-name">Agashi Sandwich</div>
+                    <div class="item-desc">Signature agashi with ketchup & mayonnaise rolled in lavash bread.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 300</span>
+                    <button class="add-btn" onclick="addToCart('Agashi Sandwich', 300)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Kua Sandwich" data-price="350">
+                <div class="item-details">
+                    <div class="item-name">Kua Sandwich</div>
+                    <div class="item-desc">Juicy kua with tahini sauce and fresh onions wrapped in lavash bread.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 350</span>
+                    <button class="add-btn" onclick="addToCart('Kua Sandwich', 350)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Shish tawook Sandwich" data-price="400">
+                <div class="item-details">
+                    <div class="item-name">Shish tawook Sandwich</div>
+                    <div class="item-desc">Tender shish tawook with creamy garlic sauce and pickles in lavash bread.</div>
+                </div>
+                <div class="item-right">
+                    <span class="item-price">KSh 400</span>
+                    <button class="add-btn" onclick="addToCart('Shish tawook Sandwich', 400)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDES -->
+        <div class="section-title" data-cat="sides">Sides & Breads</div>
+        <div class="menu-grid" data-cat="sides">
+            <div class="menu-item" data-name="Plain chips" data-price="200">
+                <div class="item-details"><div class="item-name">Plain chips</div></div>
+                <div class="item-right">
+                    <span class="item-price">KSh 200</span>
+                    <button class="add-btn" onclick="addToCart('Plain chips', 200)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Naan (Butter/Garlic)" data-price="150">
+                <div class="item-details"><div class="item-name">Naan (Butter, Garlic)</div></div>
+                <div class="item-right">
+                    <span class="item-price">KSh 150</span>
+                    <button class="add-btn" onclick="addToCart('Naan (Butter/Garlic)', 150)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Lavash" data-price="70">
+                <div class="item-details"><div class="item-name">Lavash Bread</div></div>
+                <div class="item-right">
+                    <span class="item-price">KSh 70</span>
+                    <button class="add-btn" onclick="addToCart('Lavash', 70)">+</button>
+                </div>
+            </div>
+            <div class="menu-item" data-name="Chapati" data-price="70">
+                <div class="item-details"><div class="item-name">Chapati</div></div>
+                <div class="item-right">
+                    <span class="item-price">KSh 70</span>
+                    <button class="add-btn" onclick="addToCart('Chapati', 70)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="section-title" data-cat="drinks">Juices, Smoothies & Hot Drinks</div>
+        <div class="menu-grid" data-cat="drinks">
+            <div class="menu-item" data-name="Baobab Juice" data-price="250"><div class="item-details"><div class="item-name">Baobab Juice</div></div><div class="item-right"><span class="item-price">KSh 250</span><button class="add-btn" onclick="addToCart('Baobab Juice', 250)">+</button></div></div>
+            <div class="menu-item" data-name="Orange Juice" data-price="300"><div class="item-details"><div class="item-name">Orange Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Orange Juice', 300)">+</button></div></div>
+            <div class="menu-item" data-name="Mango Juice" data-price="300"><div class="item-details"><div class="item-name">Mango Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Mango Juice', 300)">+</button></div></div>
+            <div class="menu-item" data-name="Passion Juice" data-price="300"><div class="item-details"><div class="item-name">Passion Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Passion Juice', 300)">+</button></div></div>
+            <div class="menu-item" data-name="Lemon Juice" data-price="300"><div class="item-details"><div class="item-name">Lemon Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Lemon Juice', 300)">+</button></div></div>
+            <div class="menu-item" data-name="Grapefruit Juice" data-price="300"><div class="item-details"><div class="item-name">Grapefruit Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Grapefruit Juice', 300)">+</button></div></div>
+            <div class="menu-item" data-name="Watermelon Juice" data-price="300"><div class="item-details"><div class="item-name">Watermelon Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Watermelon Juice', 300)">+</button></div></div>
+            <div class="menu-item" data-name="Pineapple Juice" data-price="300"><div class="item-details"><div class="item-name">Pineapple Juice</div></div><div class="item-right"><span class="item-price">KSh 300</span><button class="add-btn" onclick="addToCart('Pineapple Juice', 300)">+</button></div></div>
+            
+            <div class="menu-item" data-name="Mango with Passion" data-price="350"><div class="item-details"><div class="item-name">Mango with Passion</div></div><div class="item-right"><span class="item-price">KSh 350</span><button class="add-btn" onclick="addToCart('Mango with Passion', 350)">+</button></div></div>
+            <div class="menu-item" data-name="Mango with Avocado" data-price="350"><div class="item-details"><div class="item-name">Mango with Avocado</div></div><div class="item-right"><span class="item-price">KSh 350</span><button class="add-btn" onclick="addToCart('Mango with Avocado', 350)">+</button></div></div>
+            <div class="menu-item" data-name="Mango with Strawberry" data-price="350"><div class="item-details"><div class="item-name">Mango with Strawberry</div></div><div class="item-right"><span class="item-price">KSh 350</span><button class="add-btn" onclick="addToCart('Mango with Strawberry', 350)">+</button></div></div>
+            <div class="menu-item" data-name="Passion with Orange" data-price="350"><div class="item-details"><div class="item-name">Passion with Orange</div></div><div class="item-right"><span class="item-price">KSh 350</span><button class="add-btn" onclick="addToCart('Passion with Orange', 350)">+</button></div></div>
+            <div class="menu-item" data-name="Baobab with pineapple" data-price="350"><div class="item-details"><div class="item-name">Baobab with pineapple</div></div><div class="item-right"><span class="item-price">KSh 350</span><button class="add-btn" onclick="addToCart('Baobab with pineapple', 350)">+</button></div></div>
+            <div class="menu-item" data-name="Tropical Mix" data-price="350"><div class="item-details"><div class="item-name">Tropical Mix</div></div><div class="item-right"><span class="item-price">KSh 350</span><button class="add-btn" onclick="addToCart('Tropical Mix', 350)">+</button></div></div>
+
+            <div class="menu-item" data-name="Mango Smoothie" data-price="400"><div class="item-details"><div class="item-name">Mango Smoothie</div></div><div class="item-right"><span class="item-price">KSh 400</span><button class="add-btn" onclick="addToCart('Mango Smoothie', 400)">+</button></div></div>
+            <div class="menu-item" data-name="Strawberry Smoothie" data-price="400"><div class="item-details"><div class="item-name">Strawberry Smoothie</div></div><div class="item-right"><span class="item-price">KSh 400</span><button class="add-btn" onclick="addToCart('Strawberry Smoothie', 400)">+</button></div></div>
+            <div class="menu-item" data-name="Avocado Smoothie" data-price="400"><div class="item-details"><div class="item-name">Avocado Smoothie</div></div><div class="item-right"><span class="item-price">KSh 400</span><button class="add-btn" onclick="addToCart('Avocado Smoothie', 400)">+</button></div></div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="section-title" data-cat="desserts">Desserts</div>
+        <div class="menu-grid" data-cat="desserts">
+            <div class="menu-item" data-name="Kunafa with Cheese" data-price="500"><div class="item-details"><div class="item-name">Kunafa with Cheese</div></div><div class="item-right"><span class="item-price">KSh 500</span><button class="add-btn" onclick="addToCart('Kunafa with Cheese', 500)">+</button></div></div>
+            <div class="menu-item" data-name="Kunafa with Nutella" data-price="600"><div class="item-details"><div class="item-name">Kunafa with Nutella</div></div><div class="item-right"><span class="item-price">KSh 600</span><button class="add-btn" onclick="addToCart('Kunafa with Nutella', 600)">+</button></div></div>
+        </div>
+
     </div>
 
-    <div class="cart-bar">
-        <div class="cart-total" id="cartTotal">Total: KSh 0</div>
-        <button class="whatsapp-btn" onclick="checkoutWhatsApp()">
-            💬 Order via WhatsApp
-        </button>
+    <!-- Cart Floating Bar -->
+    <div class="cart-bar" id="cart-bar" style="display: none;">
+        <div class="cart-info">
+            <div><span id="cart-count">0</span> items</div>
+            <div class="cart-total">KSh <span id="cart-total-price">0</span></div>
+        </div>
+        <button class="checkout-btn" onclick="openCartModal()">View Order</button>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Order</h3>
+                <button class="close-modal" onclick="closeCartModal()">&times;</button>
+            </div>
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Dynamic Items -->
+            </div>
+            <div style="margin-bottom: 1rem; font-weight: bold; display: flex; justify-content: space-between;">
+                <span>Total:</span>
+                <span>KSh <span id="modal-total-price">0</span></span>
+            </div>
+            <a href="#" id="whatsapp-checkout-link" class="whatsapp-order-btn" target="_blank">Order via WhatsApp</a>
+        </div>
     </div>
 
     <script>
-        const cart = {};
+        let cart = {};
 
-        function updateQty(name, price, change) {
-            if (!cart[name]) {
-                cart[name] = { price: price, qty: 0 };
+        function filterMenu(category, btn) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const titles = document.querySelectorAll('.section-title');
+            const grids = document.querySelectorAll('.menu-grid');
+
+            if (category === 'all') {
+                titles.forEach(el => el.style.display = 'block');
+                grids.forEach(el => el.style.display = 'flex');
+            } else {
+                titles.forEach(el => {
+                    if (el.getAttribute('data-cat') === category) {
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+                grids.forEach(el => {
+                    if (el.getAttribute('data-cat') === category) {
+                        el.style.display = 'flex';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
             }
-            cart[name].qty += change;
-            if (cart[name].qty < 0) {
-                cart[name].qty = 0;
-            }
-            
-            document.getElementById(`qty-${name}`).innerText = cart[name].qty;
-            calculateTotal();
         }
 
-        function calculateTotal() {
-            let total = 0;
-            for (let item in cart) {
-                total += cart[item].price * cart[item].qty;
+        function addToCart(name, price) {
+            if (cart[name]) {
+                cart[name].qty += 1;
+            } else {
+                cart[name] = { price: price, qty: 1 };
             }
-            document.getElementById('cartTotal').innerText = `Total: KSh ${total.toLocaleString()}`;
+            updateCartUI();
         }
 
-        function filterMenu(category) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            document.querySelectorAll('.section-category').forEach(sec => {
-                if (category === 'all' || sec.dataset.category === category) {
-                    sec.style.display = 'block';
-                } else {
-                    sec.style.display = 'none';
-                }
-            });
-        }
-
-        function checkoutWhatsApp() {
-            let message = "Hello Pyramids Cuisine, I would like to place an order:%0A";
-            let total = 0;
-            let hasItems = false;
-
-            for (let item in cart) {
-                if (cart[item].qty > 0) {
-                    hasItems = true;
-                    let subtotal = cart[item].price * cart[item].qty;
-                    total += subtotal;
-                    message += `- ${item} x${cart[item].qty} (KSh ${subtotal})%0A`;
+        function changeQty(name, delta) {
+            if (cart[name]) {
+                cart[name].qty += delta;
+                if (cart[name].qty <= 0) {
+                    delete cart[name];
                 }
             }
+            updateCartUI();
+        }
 
-            if (!hasItems) {
-                alert("Please select at least one item before ordering.");
-                return;
+        function updateCartUI() {
+            let totalCount = 0;
+            let totalPrice = 0;
+            let listHTML = '';
+
+            for (let name in cart) {
+                let item = cart[name];
+                totalCount += item.qty;
+                totalPrice += item.price * item.qty;
+                listHTML += `
+                    <div class="cart-item-row">
+                        <div>
+                            <strong>${name}</strong><br>
+                            <small style="color: var(--text-muted);">KSh ${item.price} x ${item.qty}</small>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button onclick="changeQty('${name}', -1)" style="background:var(--border); color:#fff; border:none; width:24px; height:24px; border-radius:4px; cursor:pointer;">-</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeQty('${name}', 1)" style="background:var(--border); color:#fff; border:none; width:24px; height:24px; border-radius:4px; cursor:pointer;">+</button>
+                        </div>
+                    </div>
+                `;
             }
 
-            message += `%0ATotal: KSh ${total.toLocaleString()}`;
-            let phone = "254729649904";
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+            document.getElementById('cart-count').innerText = totalCount;
+            document.getElementById('cart-total-price').innerText = totalPrice;
+            document.getElementById('modal-total-price').innerText = totalPrice;
+            document.getElementById('cart-items-list').innerHTML = listHTML;
+
+            const cartBar = document.getElementById('cart-bar');
+            if (totalCount > 0) {
+                cartBar.style.display = 'flex';
+            } else {
+                cartBar.style.display = 'none';
+                closeCartModal();
+            }
+
+            // Update WhatsApp Link
+            let waText = "Hello Pyramids Cuisine, I would like to place an order:%0A";
+            for (let name in cart) {
+                waText += `- ${name} (${cart[name].qty}) : KSh ${cart[name].price * cart[name].qty}%0A`;
+            }
+            waText += `%0ATotal: KSh ${totalPrice}`;
+            document.getElementById('whatsapp-checkout-link').href = `https://wa.me/254729649904?text=${waText}`;
+        }
+
+        function openCartModal() {
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').style.display = 'none';
         }
     </script>
 </body>
